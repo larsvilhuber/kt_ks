@@ -11,7 +11,9 @@
 #######
 
 
-FCFLAGS="-Ofast -fno-gcse -fopenmp"
+#FCFLAGS="-Ofast -fno-gcse -fopenmp"
+FCFLAGS="-static -lm -Ofast -fno-gcse -fopenmp"
+EXEFILE="kt_ks.static.exe"
 
 echo "Compiling the base module"
 
@@ -23,4 +25,4 @@ gfortran ${FCFLAGS} -c -o kt_ks.o -I . kt_ks.f90
 
 echo "Creating the executable"
 
-gfortran ${FCFLAGS} base_lib.o kt_ks.o -o kt_ks.exe
+gfortran ${FCFLAGS} base_lib.o kt_ks.o -o $EXEFILE
